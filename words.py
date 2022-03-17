@@ -27,8 +27,6 @@ def generate_word_list(input_file='words_alpha.txt', output_file='words-short.tx
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('-s', '--startswith', default='')
-    parser.add_argument('-e', '--endswith', default='')
     parser.add_argument('-c', '--contains', default='')
     parser.add_argument('-n', '--notcontains', default='')
     parser.add_argument('-a', '--at', default='')
@@ -45,12 +43,6 @@ if __name__ == '__main__':
             found = True
             word = word.strip()
 
-            if args.startswith:
-                if not word.startswith(args.startswith):
-                    continue
-            if args.endswith:
-                if not word.endswith(args.endswith):
-                    continue
             if args.contains:
                 all_match = True
                 for i in args.contains:
@@ -92,8 +84,6 @@ if __name__ == '__main__':
             matches.append(word)
             print(f"{count:4}: {word}")
     print("===================================")
-    print(f"Starts with:              {args.startswith}")
-    print(f"Endswith:                 {args.endswith}")
     print(f"Contains letters:         {args.contains}")
     print(f"Does not contain letters: {args.notcontains}")
     print(f"Has letters at:           {args.at}")
